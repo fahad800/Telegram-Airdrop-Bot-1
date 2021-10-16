@@ -59,8 +59,8 @@ else:
 
 # %% MONGODB CONNECTION
 CONNECTION_STRING = f"mongodb://{MONGO_USER}:{MONGO_PASSWORD}@{MONGO_IP}:{MONGO_PORT}/?authSource=admin"
-myclient = pymongo.MongoClient(CONNECTION_STRING)
-mydb = myclient["airdrop"]
+myclient = pymongo.MongoClient('mongodb://cryptodo:14567890@cluster0-shard-00-00.zpqpi.mongodb.net:27017,cluster0-shard-00-01.zpqpi.mongodb.net:27017,cluster0-shard-00-02.zpqpi.mongodb.net:27017/cryptodo?ssl=true&replicaSet=atlas-fc6yr9-shard-0&authSource=admin&retryWrites=true&w=majority')
+mydb = myclient["dobot"]
 users = mydb["users"]
 users.create_index([('ref', pymongo.TEXT)], name='search_index', default_language='english')
 users.create_index("userId")
